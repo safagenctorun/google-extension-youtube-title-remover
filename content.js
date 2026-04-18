@@ -14,13 +14,21 @@ function handleFullscreenChange() {
 }
 
 function removeFullscreenElements() {
-  const titleElement = document.querySelector(".ytp-title-text");
-  const gradientElement = document.querySelector(".ytp-gradient-top");
+  const titleElement = document.querySelector(
+    ".ytPlayerOverlayVideoDetailsRendererTitle, .ytPlayerOverlayVideoDetailsRendererSingleLineTitle",
+  );
+  const subTitleElement = document.querySelector(
+    ".ytPlayerOverlayVideoDetailsRendererSubtitle, .ytPlayerOverlayVideoDetailsRendererHideSubtitle",
+  );
+  // const gradientElement = document.querySelector(".ytp-gradient-top");
 
   if (titleElement) {
-    titleElement.remove();
+    titleElement.style.setProperty("opacity", "0", "important");
   }
-  if (gradientElement) {
-    gradientElement.remove();
+  if (subTitleElement) {
+    subTitleElement.style.setProperty("opacity", "0", "important");
   }
+  // if (gradientElement) {
+  //   gradientElement.remove();
+  // }
 }
